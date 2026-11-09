@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07101f" />
+    <title>Ahmed Akram | Math 1 Midterm Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="math-noise" aria-hidden="true"></div>
+    <div class="app-shell" id="app-shell">
+      <header class="site-header">
+        <button class="brand" id="home-button" aria-label="Back to Math 1 Midterm Lab home">
+          <span class="brand-mark">∫</span>
+          <span><b>Ahmed Akram</b><small>Math 1 Midterm Lab</small></span>
+        </button>
+        <div class="header-actions">
+          <button class="icon-button theme-toggle" id="theme-toggle" aria-label="Switch color theme" title="Switch color theme">
+            <span class="theme-icon">☼</span><span class="theme-copy">Light mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" tabindex="-1"></main>
+    </div>
+
+    <dialog class="result-modal" id="result-modal">
+      <button class="dialog-close" id="dialog-close" aria-label="Close results">×</button>
+      <div id="result-content"></div>
+    </dialog>
+
+    <template id="home-template">
+      <section class="hero">
+        <div class="eyebrow"><span class="pulse-dot"></span> Midterm preparation system</div>
+        <div class="hero-grid">
+          <div>
+            <p class="overline">MATH 1 / MIDTERM EXAM PRACTICE</p>
+            <h1>Study sharp.<br /><em>Submit certain.</em></h1>
+            <p class="hero-copy">A focused English practice lab built from your Chapter 1 and Tutorials 1–5 material. Every answer and explanation stays sealed until you submit.</p>
+            <div class="hero-actions">
+              <button class="primary-button" data-action="start-full">Start comprehensive exam <span>→</span></button>
+              <a class="text-button" href="#topics">Pick a topic <span>↓</span></a>
+            </div>
+          </div>
+          <aside class="exam-card">
+            <div class="exam-card-head"><span>COMPREHENSIVE</span><span class="status-pill">READY</span></div>
+            <div class="exam-time"><span>60</span><small>minutes</small></div>
+            <p>40 questions · all six study topics · automatic final submission</p>
+            <div class="exam-card-rule"></div>
+            <small class="muted">No answers are revealed during the exam.</small>
+          </aside>
+        </div>
+        <div class="quick-stats">
+          <div><b>6</b><span>Topics</span></div>
+          <div><b>79</b><span>Question bank</span></div>
+          <div><b>35</b><span>Minutes per topic</span></div>
+          <div><b>0</b><span>Graph questions</span></div>
+        </div>
+      </section>
+
+      <section class="topics-section" id="topics">
+        <div class="section-title-row">
+          <div><p class="overline">PRACTICE BY TOPIC</p><h2>Choose your arena.</h2></div>
+          <p class="section-note">35 minutes each · question counts vary</p>
+        </div>
+        <div class="topic-grid" id="topic-grid"></div>
+      </section>
+
+      <section class="rules-card">
+        <div class="rule-icon">⌁</div>
+        <div><h3>How the lab works</h3><p>Your clock starts when you launch a quiz. You can move freely between questions, but cannot see answers or explanations before final submission. If the timer reaches zero, the attempt locks and submits automatically.</p></div>
+      </section>
+    </template>
+
+    <template id="quiz-template">
+      <section class="quiz-layout">
+        <div class="quiz-topbar">
+          <button class="back-button" data-action="exit-quiz">← <span>Exit attempt</span></button>
+          <div class="quiz-mode" id="quiz-mode"></div>
+          <div class="timer" id="timer" aria-live="polite"><span>◷</span> <b>10:00</b></div>
+        </div>
+        <div class="quiz-progress-row">
+          <div class="progress-track"><span id="progress-fill"></span></div>
+          <p id="progress-copy">Question 1 of 10</p>
+        </div>
+        <div class="quiz-stage">
+          <aside class="question-map-wrap">
+            <div class="map-heading"><span>QUESTION MAP</span><b id="answered-count">0 / 10</b></div>
+            <div class="question-map" id="question-map" aria-label="Question navigation"></div>
+            <p class="map-legend"><span class="legend-dot current"></span> Current <span class="legend-dot complete"></span> Answered</p>
+          </aside>
+          <article class="question-card" id="question-card"></article>
+        </div>
+        <div class="quiz-controls">
+          <button class="secondary-button" id="previous-button">← Previous</button>
+          <button class="submit-button" id="submit-button">Submit attempt <span>↗</span></button>
+          <button class="primary-button" id="next-button">Next question <span>→</span></button>
+        </div>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
